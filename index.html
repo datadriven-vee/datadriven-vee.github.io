@@ -4,133 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanshika Parkar | Data Scientist Portfolio</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/gridstack@10.3.1/dist/gridstack.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        :root { --bg: #0d1117; --card: #161b22; --text: #c9d1d9; --accent: #58a6ff; --dim: #8b949e; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        :root { 
+            --bg: #0b0e14; 
+            --card: rgba(22, 27, 34, 0.7); 
+            --text: #c9d1d9; 
+            --accent: #58a6ff; 
+            --dim: #8b949e;
+        }
         
-        /* Header styling from your resume [cite: 1, 2] */
-        header { text-align: center; padding: 80px 0 40px; border-bottom: 1px solid #30363d; }
-        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); }
-        h1 { margin: 10px 0; font-size: 2.5rem; color: #fff; }
-        .subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; }
-        .contact-links a { color: var(--text); text-decoration: none; margin: 0 15px; font-size: 1.5rem; transition: 0.3s; }
-        .contact-links a:hover { color: var(--accent); }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            overflow-x: hidden;
+        }
 
-        /* Experience Timeline [cite: 3, 4, 14, 21] */
-        section { padding: 50px 0; border-bottom: 1px solid #30363d; }
+        /* Fixed Interactive Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at center, #161b22 0%, #0b0e14 100%);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; position: relative; }
+        
+        header { text-align: center; padding: 80px 0 40px; }
+        .profile-img { 
+            width: 160px; height: 160px; border-radius: 50%; 
+            border: 4px solid var(--accent); transition: 0.5s;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+        }
+        .profile-img:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent); }
+
+        section { padding: 50px 0; border-bottom: 1px solid rgba(48, 54, 61, 0.5); }
         h2 { font-size: 1.8rem; color: #fff; margin-bottom: 30px; display: flex; align-items: center; }
         h2 i { margin-right: 15px; color: var(--accent); }
-        .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid var(--accent); margin-bottom: 40px; }
-        .company { font-style: italic; color: var(--dim); margin-bottom: 10px; display: block; }
 
-        /* Gridstack Widget Styles [cite: 144, 145, 146] */
-        .grid-stack { margin-top: 20px; }
-        .grid-stack-item-content { background: var(--card) !important; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; padding: 15px; }
+        /* Experience Timeline */
+        .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid var(--accent); margin-bottom: 40px; }
+        .company { font-style: italic; color: var(--dim); display: block; margin-bottom: 10px; }
+
+        /* Dashboard/Gridstack Styling */
+        .grid-stack-item-content { 
+            background: var(--card) !important; 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 15px; 
+            overflow: hidden;
+            padding: 15px;
+        }
         .widget-img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-        .widget-title { color: var(--accent); font-size: 1.1rem; margin-bottom: 5px; }
-        .tag { background: #1f242c; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; border: 1px solid #388bfd; margin-right: 5px; }
+        .tag { background: #1f242c; color: var(--accent); padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; border: 1px solid #388bfd; margin-right: 5px; }
         .btn-small { display: inline-block; background: var(--accent); color: #fff; padding: 6px 12px; text-decoration: none; border-radius: 6px; font-size: 0.8rem; margin-top: 10px; }
 
-        /* Education & Certs [cite: 26, 31, 44] */
+        /* Education & Certs */
         .edu-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-        .edu-item { background: var(--card); padding: 20px; border-radius: 10px; flex: 1; min-width: 280px; border: 1px solid #30363d; }
+        .edu-item { background: var(--card); backdrop-filter: blur(12px); padding: 25px; border-radius: 15px; border: 1px solid #30363d; flex: 1; min-width: 280px; }
+        .cert-thumb { width: 100%; height: 100px; object-fit: cover; border-radius: 5px; cursor: pointer; border: 1px solid #30363d; transition: 0.3s; }
+        .cert-thumb:hover { border-color: var(--accent); transform: scale(1.02); }
     </style>
 </head>
 <body>
 
+<div id="particles-js"></div>
+
 <div class="container">
-    <header>
+    <header data-aos="fade-down">
         <img src="profile.jpg" alt="Vanshika Parkar" class="profile-img">
         <h1>Vanshika Parkar</h1>
-        <p class="subtitle">Data Scientist | ML Engineer | MS in IT & Analytics (RIT)</p>
-        <div class="contact-links">
-            <a href="https://github.com/datadriven-vee" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/vanshika-19865d/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:vpdata17@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="ParkarVanshika_Resume.pdf" target="_blank" title="Download Resume"><i class="fas fa-file-pdf"></i></a>
+        <p style="color:var(--accent); font-size: 1.2rem;">Data Scientist | ML Engineer | MS in IT & Analytics (RIT)</p>
+        <div style="margin-top: 20px;">
+            <a href="https://github.com/datadriven-vee" target="_blank" style="color:var(--text); font-size: 1.5rem; margin: 0 15px;"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/vanshika-19865d/" target="_blank" style="color:var(--text); font-size: 1.5rem; margin: 0 15px;"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:vpdata17@gmail.com" style="color:var(--text); font-size: 1.5rem; margin: 0 15px;"><i class="fas fa-envelope"></i></a>
+            <a href="ParkarVanshika_Resume.pdf" target="_blank" style="color:var(--text); font-size: 1.5rem; margin: 0 15px;"><i class="fas fa-file-pdf"></i></a>
         </div>
     </header>
 
-    <section id="experience">
+    <section id="experience" data-aos="fade-right">
         <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        
         <div class="timeline-item">
             <h3>Research Intern / Assistant</h3>
             <span class="company">Rochester Institute of Technology | Jan 2025 - Aug 2025</span>
-            <p>Led AI-ASL development using Large Vision Language Models and fine-tuned LLaVA-OV 7B models. Engineered ETL pipelines for 4K+ multimodal pairs[cite: 7, 8, 11].</p>
+            <p>Led AI-ASL development using Large Vision Language Models and fine-tuned LLaVA-OV 7B models. Engineered ETL pipelines for 4K+ pairs and used RAG frameworks to increase data efficiency by 35%.</p>
         </div>
+
         <div class="timeline-item">
             <h3>Associate Data Scientist</h3>
             <span class="company">Acars Realty Ltd. | July 2022 - Aug 2023</span>
-            <p>Migrated 80K+ records to Snowflake and rebuilt ETL/ELT pipelines[cite: 18]. Built predictive valuation engines driving conversion growth[cite: 17, 19].</p>
+            <p>Migrated 80K+ records to Snowflake by rebuilding ETL SQL pipelines. Built predictive valuation engines using ML algorithms and designed customer segmentation pipelines driving 12% conversion growth.</p>
         </div>
+
         <div class="timeline-item">
             <h3>Data Engineer</h3>
             <span class="company">ACL Digital | Jan 2022 - June 2022</span>
-            <p>Architected production ML pipelines using Docker and CI/CD[cite: 24]. Developed PySpark pipelines for 50GB+ daily data with FastAPI inference[cite: 25].</p>
+            <p>Architected production ML pipelines for 12+ retail clients using Docker and CI/CD, improving deployment efficiency by 32%. Developed PySpark feature engineering pipelines for 50GB+ daily data.</p>
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" data-aos="zoom-in">
         <h2><i class="fas fa-th-large"></i> Project Dashboard</h2>
-        <div class="grid-stack"></div> 
+        <div class="grid-stack"></div>
     </section>
 
-    <section id="education">
+    <section id="education" data-aos="fade-up">
         <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
         <div class="edu-flex">
             <div class="edu-item">
                 <h3>MS in IT & Analytics</h3>
-                <span class="company">RIT | GPA: 3.9/4.0 [cite: 28]</span>
-                <p>Graduated Dec 2025[cite: 29].</p>
+                <span class="company">RIT | GPA: 3.9/4.0</span>
+                <p>Graduated Dec 2025. Specialized in Neural Networks and Text Mining.</p>
             </div>
             <div class="edu-item">
-                <h3>BE in Electronics & Telecommunication</h3>
-                <span class="company">VIT | GPA: 3.2/4.0 [cite: 32]</span>
+                <h3>BE in Electronics & Telecom</h3>
+                <span class="company">VIT | GPA: 3.2/4.0</span>
                 <p>Graduated July 2021.</p>
             </div>
             <div class="edu-item">
-                <h3>Certifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <img src="IITK.png" style="width:100%; border-radius:5px; cursor:pointer;" onclick="window.open(this.src)">
-                    <img src="udemy_python.png" style="width:100%; border-radius:5px; cursor:pointer;" onclick="window.open(this.src)">
+                <h3>Professional Certifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
+                    <div style="text-align: center;">
+                        <strong style="font-size: 0.7rem; display: block; min-height: 30px;">IIT Kanpur Analytics</strong>
+                        <img src="IITK.png" class="cert-thumb" onclick="window.open(this.src)">
+                    </div>
+                    <div style="text-align: center;">
+                        <strong style="font-size: 0.7rem; display: block; min-height: 30px;">Udemy Python</strong>
+                        <img src="udemy_python.png" class="cert-thumb" onclick="window.open(this.src)">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gridstack@10.3.1/dist/gridstack-all.js"></script>
-<script type="text/javascript">
-  var grid = GridStack.init({
-    cellHeight: 80,
-    margin: 10,
-    minRow: 1
+
+<script>
+  AOS.init({ duration: 1000, once: true });
+
+  /* Particles.js Config */
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+      "color": { "value": "#58a6ff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5, "random": true },
+      "size": { "value": 3, "random": true },
+      "line_linked": { "enable": true, "distance": 150, "color": "#58a6ff", "opacity": 0.3, "width": 1 },
+      "move": { "enable": true, "speed": 1.5 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
+      "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 1 } } }
+    },
+    "retina_detect": true
   });
 
-  var items = [
+  /* Gridstack Dashboard Init */
+  var grid = GridStack.init({ cellHeight: 85, margin: 10 });
+  grid.load([
     { w: 4, h: 4, x: 0, y: 0, content: `
         <img src="bleet-thumb.jpg" class="widget-img">
-        <div class="widget-title">Bleet</div>
-        <p style="font-size:0.75rem">AI Behavioral Interview Practice.</p>
+        <div style="color:var(--accent); font-weight:bold; font-size: 0.9rem;">Bleet</div>
+        <p style="font-size:0.7rem; margin: 5px 0;">AI Behavioral Interview Practice.</p>
         <span class="tag">Python</span><span class="tag">NLP</span>
         <br><a href="https://github.com/datadriven-vee/Bleet" class="btn-small">Source</a>` },
     { w: 4, h: 4, x: 4, y: 0, content: `
         <img src="asl-thumb.png" class="widget-img">
-        <div class="widget-title">AI ASL</div>
-        <p style="font-size:0.75rem">Sign Language Recognition System.</p>
+        <div style="color:var(--accent); font-weight:bold; font-size: 0.9rem;">AI ASL</div>
+        <p style="font-size:0.7rem; margin: 5px 0;">Sign Language Translation system.</p>
         <span class="tag">PyTorch</span><span class="tag">Vision</span>
         <br><a href="https://github.com/datadriven-vee/ai_asl" class="btn-small">Source</a>` },
-    { w: 4, h: 3, x: 8, y: 0, content: `
-        <div class="widget-title">Sentiment Analysis</div>
-        <p style="font-size:0.75rem">NLTK Analysis on product reviews.</p>
+    { w: 4, h: 4, x: 8, y: 0, content: `
+        <div style="color:var(--accent); font-weight:bold; font-size: 0.9rem; margin-top: 20px;">Sentiment Analysis</div>
+        <p style="font-size:0.7rem; margin: 10px 0;">NLTK Analysis on product reviews.</p>
         <span class="tag">NLTK</span><span class="tag">Python</span>
         <br><a href="https://github.com/datadriven-vee/Products_SentimentAnalysis" class="btn-small">Source</a>` }
-  ];
-
-  grid.load(items);
+  ]);
 </script>
 </body>
 </html>
