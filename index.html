@@ -5,52 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanshika Parkar | Data Portfolio</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f4f9; }
-        header { text-align: center; padding: 40px 0; background: #24292e; color: white; border-radius: 8px; margin-bottom: 30px; }
-        .project-card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; border-left: 5px solid #007bff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card h3 { margin-top: 0; }
-        .btn { display: inline-block; background: #007bff; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 0.9em; }
-        .tags { font-size: 0.8em; color: #666; font-style: italic; }
+        :root { --bg: #0d1117; --card-bg: #161b22; --text: #c9d1d9; --accent: #58a6ff; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; scroll-behavior: smooth; }
+        
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        section { animation: fadeIn 0.8s ease-out forwards; margin-bottom: 60px; }
+
+        header { text-align: center; padding: 60px 0; }
+        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); margin-bottom: 20px; transition: transform 0.3s; }
+        .profile-img:hover { transform: scale(1.1) rotate(5deg); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); border: 1px solid #30363d; border-radius: 12px; overflow: hidden; transition: 0.3s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        .card-img { width: 100%; height: 180px; object-fit: cover; background: #21262d; }
+        .card-content { padding: 20px; }
+
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+        .resume-link { color: var(--accent); text-decoration: underline; font-size: 1.2rem; }
+        
+        h2 { border-bottom: 1px solid #30363d; padding-bottom: 10px; color: var(--accent); }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
 <header>
+    <img src="profile.jpg" alt="Vanshika Parkar" class="profile-img">
     <h1>Vanshika Parkar</h1>
-    <p>Information Technology & Analytics | MS at RIT</p>
-    <p>Boston, MA</p>
+    <p>Data Scientist | MS in Information Technology & Analytics (RIT)</p>
+    <a href="YOUR_RESUME_LINK_HERE" class="resume-link">📄 Download My Resume</a>
 </header>
 
-<h2>Featured Projects</h2>
+<section id="experience">
+    <h2>Work Experience</h2>
+    <ul>
+        <li>
+            <strong>Graduate Teaching Assistant</strong> | Rochester Institute of Technology
+            <p>Assisted in "Principles of Data Science" and "Web & Mobile Technologies."</p>
+        </li>
+    </ul>
+</section>
 
-<div class="project-card">
-    <h3>Bleet</h3>
-    <p>A web application designed for practicing behavioral interview questions.</p>
-    <p class="tags">Tools: Python, Streamlit</p>
-    <a href="https://github.com/datadriven-vee/Bleet" class="btn">View Project</a>
-</div>
+<section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="bleet-thumb.jpg" alt="Bleet" class="card-img">
+            <div class="card-content">
+                <h3>Bleet</h3>
+                <p>Web app for behavioral interview practice using Streamlit.</p>
+                <a href="https://github.com/datadriven-vee/Bleet" class="btn">View Project</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="asl-thumb.jpg" alt="AI ASL" class="card-img">
+            <div class="card-content">
+                <h3>AI ASL Recognition</h3>
+                <p>Deep learning for sign language interpretation.</p>
+                <a href="https://github.com/datadriven-vee/ai_asl" class="btn">View Project</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="project-card">
-    <h3>AI ASL Recognition</h3>
-    <p>Using deep learning to interpret American Sign Language (ASL) gestures.</p>
-    <p class="tags">Tools: PyTorch, Computer Vision</p>
-    <a href="https://github.com/datadriven-vee/ai_asl" class="btn">View Project</a>
-</div>
+<section id="education">
+    <h2>Education</h2>
+    <ul>
+        <li><strong>MS in IT & Analytics</strong> | Rochester Institute of Technology (2025)</li>
+        <li><strong>BE in Electronics & Telecommunication</strong> | University of Mumbai</li>
+    </ul>
+</section>
 
-<div class="project-card">
-    <h3>Products Sentiment Analysis</h3>
-    <p>Sentiment analysis performed on product reviews to compare actual ratings using NLTK.</p>
-    <p class="tags">Tools: NLTK, Sentiment Analysis, Python</p>
-    <a href="https://github.com/datadriven-vee/Products_SentimentAnalysis" class="btn">View Project</a>
-</div>
-
-<div class="project-card">
-    <h3>Captcha Text Recognition</h3>
-    <p>An end-to-end data solution for solving text-based captchas using machine learning.</p>
-    <p class="tags">Tools: Deep Learning, OCR</p>
-    <a href="https://github.com/datadriven-vee/Captcha_TextRecognition" class="btn">View Project</a>
-</div>
+<section id="certifications">
+    <h2>Certifications & Skills</h2>
+    <p>Python, SQL, PyTorch, LangChain, Generative AI, Snowflake SnowConvert.</p>
+</section>
 
 </body>
 </html>
