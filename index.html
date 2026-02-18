@@ -5,43 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vanshika Parkar | Data Scientist Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/gridstack@10.3.1/dist/gridstack.min.css" rel="stylesheet"/>
     <style>
         :root { --bg: #0d1117; --card: #161b22; --text: #c9d1d9; --accent: #58a6ff; --dim: #8b949e; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Header */
+        /* Header styling from your resume [cite: 1, 2] */
         header { text-align: center; padding: 80px 0 40px; border-bottom: 1px solid #30363d; }
         .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); }
         h1 { margin: 10px 0; font-size: 2.5rem; color: #fff; }
         .subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; }
-        .contact-links { margin-top: 20px; }
         .contact-links a { color: var(--text); text-decoration: none; margin: 0 15px; font-size: 1.5rem; transition: 0.3s; }
         .contact-links a:hover { color: var(--accent); }
 
-        /* Sections */
+        /* Experience Timeline [cite: 3, 4, 14, 21] */
         section { padding: 50px 0; border-bottom: 1px solid #30363d; }
         h2 { font-size: 1.8rem; color: #fff; margin-bottom: 30px; display: flex; align-items: center; }
         h2 i { margin-right: 15px; color: var(--accent); }
-
-        /* Experience Timeline */
         .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid var(--accent); margin-bottom: 40px; }
-        .timeline-item h3 { margin: 0; color: #fff; }
-        .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
         .company { font-style: italic; color: var(--dim); margin-bottom: 10px; display: block; }
 
-        /* Project Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--card); border: 1px solid #30363d; border-radius: 12px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card-img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card-content h3 { margin-top: 0; color: var(--accent); }
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-        .tag { background: #1f242c; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #388bfd; }
-        .btn { display: inline-block; background: var(--accent); color: #fff; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
+        /* Gridstack Widget Styles [cite: 144, 145, 146] */
+        .grid-stack { margin-top: 20px; }
+        .grid-stack-item-content { background: var(--card) !important; border: 1px solid #30363d; border-radius: 12px; overflow: hidden; padding: 15px; }
+        .widget-img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
+        .widget-title { color: var(--accent); font-size: 1.1rem; margin-bottom: 5px; }
+        .tag { background: #1f242c; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; border: 1px solid #388bfd; margin-right: 5px; }
+        .btn-small { display: inline-block; background: var(--accent); color: #fff; padding: 6px 12px; text-decoration: none; border-radius: 6px; font-size: 0.8rem; margin-top: 10px; }
 
-        /* Education & Certs */
+        /* Education & Certs [cite: 26, 31, 44] */
         .edu-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
         .edu-item { background: var(--card); padding: 20px; border-radius: 10px; flex: 1; min-width: 280px; border: 1px solid #30363d; }
     </style>
@@ -63,53 +56,26 @@
 
     <section id="experience">
         <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-        
         <div class="timeline-item">
             <h3>Research Intern / Assistant</h3>
             <span class="company">Rochester Institute of Technology | Jan 2025 - Aug 2025</span>
-            <p>Led AI-ASL development using Large Vision Language Models and fine-tuned LLaVA-OV 7B models with LoRA. Engineered ETL pipelines for 4K+ multimodal video-annotation pairs and used RAG frameworks to increase data efficiency by 35%.</p>
+            <p>Led AI-ASL development using Large Vision Language Models and fine-tuned LLaVA-OV 7B models. Engineered ETL pipelines for 4K+ multimodal pairs[cite: 7, 8, 11].</p>
         </div>
-
         <div class="timeline-item">
             <h3>Associate Data Scientist</h3>
             <span class="company">Acars Realty Ltd. | July 2022 - Aug 2023</span>
-            <p>Migrated 80K+ records to Snowflake by rebuilding ETL/ELT SQL pipelines. Built predictive valuation engines using ML algorithms and designed customer segmentation pipelines that drove a 12% increase in conversion rates.</p>
+            <p>Migrated 80K+ records to Snowflake and rebuilt ETL/ELT pipelines[cite: 18]. Built predictive valuation engines driving conversion growth[cite: 17, 19].</p>
         </div>
-
         <div class="timeline-item">
             <h3>Data Engineer</h3>
             <span class="company">ACL Digital | Jan 2022 - June 2022</span>
-            <p>Architected production ML pipelines for 12+ retail clients using Docker and CI/CD, improving deployment efficiency by 32%. Developed PySpark feature engineering pipelines for 50GB+ daily data, integrating MLflow and FastAPI for high-performance inference.</p>
+            <p>Architected production ML pipelines using Docker and CI/CD[cite: 24]. Developed PySpark pipelines for 50GB+ daily data with FastAPI inference[cite: 25].</p>
         </div>
     </section>
 
     <section id="projects">
-        <h2><i class="fas fa-code-branch"></i> Featured Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="bleet-thumb.jpg" alt="Bleet" class="card-img">
-                <div class="card-content">
-                    <h3>Bleet</h3>
-                    <p>Web application for practicing behavioral interview questions with AI assistance</p>
-                    <div class="tags">
-                        <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">NLP</span>
-                    </div>
-                    <a href="https://github.com/datadriven-vee/Bleet" class="btn">View Source</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="asl-thumb.png" alt="AI ASL" class="card-img">
-                <div class="card-content">
-                    <h3>AI ASL Recognition</h3>
-                    <p>End-to-end LVLM system for American Sign Language interpretation using RAG and PyTorch</p>
-                    <div class="tags">
-                        <span class="tag">PyTorch</span><span class="tag">LLMs</span><span class="tag">Computer Vision</span>
-                    </div>
-                    <a href="https://github.com/datadriven-vee/ai_asl" class="btn">View Source</a>
-                </div>
-            </div>
-        </div>
+        <h2><i class="fas fa-th-large"></i> Project Dashboard</h2>
+        <div class="grid-stack"></div> 
     </section>
 
     <section id="education">
@@ -117,38 +83,54 @@
         <div class="edu-flex">
             <div class="edu-item">
                 <h3>MS in IT & Analytics</h3>
-                <span class="company">Rochester Institute of Technology (RIT)</span>
-                <p>GPA: 3.9/4.0 | Graduated Dec 2025</p>
+                <span class="company">RIT | GPA: 3.9/4.0 [cite: 28]</span>
+                <p>Graduated Dec 2025[cite: 29].</p>
             </div>
             <div class="edu-item">
-                <h3>Bachelor of Engineering in Electronics & Telecommunication</h3>
-                <span class="company">Vidyalankar Institute of Technology (VIT)</span>
-                <p>GPA: 3.2/4.0 | Graduated July 2021</p>
+                <h3>BE in Electronics & Telecommunication</h3>
+                <span class="company">VIT | GPA: 3.2/4.0 [cite: 32]</span>
+                <p>Graduated July 2021.</p>
             </div>
-           <div class="edu-item">
-                <h3>Professional Certifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
-                    
-                    <div style="text-align: center;">
-                        <strong style="font-size: 0.8rem; display: block; min-height: 35px;">IIT Kanpur Data Analytics</strong>
-                        <div style="overflow: hidden; border-radius: 5px; border: 1px solid #30363d; height: 120px;">
-                            <img src="IITK.png" alt="IIT Kanpur" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="window.open(this.src)">
-                        </div>
-                    </div>
-            
-                    <div style="text-align: center;">
-                        <strong style="font-size: 0.8rem; display: block; min-height: 35px;">Masterclass Python</strong>
-                        <div style="overflow: hidden; border-radius: 5px; border: 1px solid #30363d; height: 120px;">
-                            <img src="udemy_python.png" alt="Udemy Python" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;" onclick="window.open(this.src)">
-                        </div>
-                    </div>
-            
+            <div class="edu-item">
+                <h3>Certifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <img src="IITK.png" style="width:100%; border-radius:5px; cursor:pointer;" onclick="window.open(this.src)">
+                    <img src="udemy_python.png" style="width:100%; border-radius:5px; cursor:pointer;" onclick="window.open(this.src)">
                 </div>
-                <p style="font-size: 0.75rem; color: #8b949e; margin-top: 10px; text-align: center;">(Click images to view full size)</p>
             </div>
         </div>
     </section>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/gridstack@10.3.1/dist/gridstack-all.js"></script>
+<script type="text/javascript">
+  var grid = GridStack.init({
+    cellHeight: 80,
+    margin: 10,
+    minRow: 1
+  });
+
+  var items = [
+    { w: 4, h: 4, x: 0, y: 0, content: `
+        <img src="bleet-thumb.jpg" class="widget-img">
+        <div class="widget-title">Bleet</div>
+        <p style="font-size:0.75rem">AI Behavioral Interview Practice.</p>
+        <span class="tag">Python</span><span class="tag">NLP</span>
+        <br><a href="https://github.com/datadriven-vee/Bleet" class="btn-small">Source</a>` },
+    { w: 4, h: 4, x: 4, y: 0, content: `
+        <img src="asl-thumb.png" class="widget-img">
+        <div class="widget-title">AI ASL</div>
+        <p style="font-size:0.75rem">Sign Language Recognition System.</p>
+        <span class="tag">PyTorch</span><span class="tag">Vision</span>
+        <br><a href="https://github.com/datadriven-vee/ai_asl" class="btn-small">Source</a>` },
+    { w: 4, h: 3, x: 8, y: 0, content: `
+        <div class="widget-title">Sentiment Analysis</div>
+        <p style="font-size:0.75rem">NLTK Analysis on product reviews.</p>
+        <span class="tag">NLTK</span><span class="tag">Python</span>
+        <br><a href="https://github.com/datadriven-vee/Products_SentimentAnalysis" class="btn-small">Source</a>` }
+  ];
+
+  grid.load(items);
+</script>
 </body>
 </html>
