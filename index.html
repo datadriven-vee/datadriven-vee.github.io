@@ -3,86 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanshika Parkar | Data Portfolio</title>
+    <title>Vanshika Parkar | Data Scientist Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg: #0d1117; --card-bg: #161b22; --text: #c9d1d9; --accent: #58a6ff; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 20px; scroll-behavior: smooth; }
+        :root { --bg: #0d1117; --card: #161b22; --text: #c9d1d9; --accent: #58a6ff; --dim: #8b949e; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Animations */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        section { animation: fadeIn 0.8s ease-out forwards; margin-bottom: 60px; }
+        /* Header */
+        header { text-align: center; padding: 80px 0 40px; border-bottom: 1px solid #30363d; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); }
+        h1 { margin: 10px 0; font-size: 2.5rem; color: #fff; }
+        .subtitle { font-size: 1.2rem; color: var(--accent); margin-bottom: 20px; }
+        .contact-links { margin-top: 20px; }
+        .contact-links a { color: var(--text); text-decoration: none; margin: 0 15px; font-size: 1.5rem; transition: 0.3s; }
+        .contact-links a:hover { color: var(--accent); }
 
-        header { text-align: center; padding: 60px 0; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); margin-bottom: 20px; transition: transform 0.3s; }
-        .profile-img:hover { transform: scale(1.1) rotate(5deg); }
+        /* Sections */
+        section { padding: 50px 0; border-bottom: 1px solid #30363d; }
+        h2 { font-size: 1.8rem; color: #fff; margin-bottom: 30px; display: flex; align-items: center; }
+        h2 i { margin-right: 15px; color: var(--accent); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); border: 1px solid #30363d; border-radius: 12px; overflow: hidden; transition: 0.3s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-10px); }
-        .card-img { width: 100%; height: 180px; object-fit: cover; background: #21262d; }
+        /* Experience Timeline */
+        .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid var(--accent); margin-bottom: 40px; }
+        .timeline-item h3 { margin: 0; color: #fff; }
+        .timeline-date { color: var(--accent); font-weight: bold; font-size: 0.9rem; }
+        .company { font-style: italic; color: var(--dim); margin-bottom: 10px; display: block; }
+
+        /* Project Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--card); border: 1px solid #30363d; border-radius: 12px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card-img { width: 100%; height: 180px; object-fit: cover; }
         .card-content { padding: 20px; }
+        .card-content h3 { margin-top: 0; color: var(--accent); }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+        .tag { background: #1f242c; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; border: 1px solid #388bfd; }
+        .btn { display: inline-block; background: var(--accent); color: #fff; padding: 8px 16px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
 
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
-        .resume-link { color: var(--accent); text-decoration: underline; font-size: 1.2rem; }
-        
-        h2 { border-bottom: 1px solid #30363d; padding-bottom: 10px; color: var(--accent); }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 15px; }
+        /* Education & Certs */
+        .edu-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .edu-item { background: var(--card); padding: 20px; border-radius: 10px; flex: 1; min-width: 280px; border: 1px solid #30363d; }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="profile.jpg" alt="Vanshika Parkar" class="profile-img">
-    <h1>Vanshika Parkar</h1>
-    <p>Data Scientist | MS in Information Technology & Analytics (RIT)</p>
-    <a href="YOUR_RESUME_LINK_HERE" class="resume-link">📄 Download My Resume</a>
-</header>
+<div class="container">
+    <header>
+        <img src="profile.jpg" alt="Vanshika Parkar" class="profile-img">
+        <h1>Vanshika Parkar</h1>
+        <p class="subtitle">Data Scientist | ML Engineer | MS in IT & Analytics (RIT)</p>
+        <div class="contact-links">
+            <a href="https://github.com/datadriven-vee" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/vanshika-19ll65d" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:vanshika.parkar99@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="ParkarVanshika_Resume.pdf" target="_blank" title="Download Resume"><i class="fas fa-file-pdf"></i></a>
+        </div>
+    </header>
 
-<section id="experience">
-    <h2>Work Experience</h2>
-    <ul>
-        <li>
-            <strong>Graduate Teaching Assistant</strong> | Rochester Institute of Technology
-            <p>Assisted in "Principles of Data Science" and "Web & Mobile Technologies."</p>
-        </li>
-    </ul>
-</section>
+    <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        
+        <div class="timeline-item">
+            <h3>Research Intern / Assistant</h3>
+            <span class="company">Rochester Institute of Technology | Jan 2025 - Aug 2025</span>
+            <p>Led AI-ASL development using Large Vision Language Models and fine-tuned LLaVA-OV 7B models with LoRA. Engineered ETL pipelines for 4K+ multimodal video-annotation pairs and used RAG frameworks to increase data efficiency by 35%.</p>
+        </div>
 
-<section id="projects">
-    <h2>Featured Projects</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="bleet-thumb.jpg" alt="Bleet" class="card-img">
-            <div class="card-content">
-                <h3>Bleet</h3>
-                <p>Web app for behavioral interview practice using Streamlit.</p>
-                <a href="https://github.com/datadriven-vee/Bleet" class="btn">View Project</a>
+        <div class="timeline-item">
+            <h3>Associate Data Scientist</h3>
+            <span class="company">Acars Realty Ltd. | July 2022 - Aug 2023</span>
+            <p>Migrated 80K+ records to Snowflake by rebuilding ETL/ELT SQL pipelines. Built predictive valuation engines using ML algorithms and designed customer segmentation pipelines that drove a 12% increase in conversion rates.</p>
+        </div>
+
+        <div class="timeline=item">
+            <h3>Data Engineer</h3>
+            <span class="company">ACL Digital | Jan 2022 - June 2022</span>
+            <p>Architected production ML pipelines for 12+ retail clients using Docker and CI/CD, improving deployment efficiency by 32%. Developed PySpark feature engineering pipelines for 50GB+ daily data, integrating MLflow and FastAPI for high-performance inference.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2><i class="fas fa-code-branch"></i> Featured Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="bleet-thumb.jpg" alt="Bleet" class="card-img">
+                <div class="card-content">
+                    <h3>Bleet</h3>
+                    <p>Web application for practicing behavioral interview questions with AI assistance</p>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">NLP</span>
+                    </div>
+                    <a href="https://github.com/datadriven-vee/Bleet" class="btn">View Source</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="asl-thumb.jpg" alt="AI ASL" class="card-img">
+                <div class="card-content">
+                    <h3>AI ASL Recognition</h3>
+                    <p>End-to-end LVLM system for American Sign Language interpretation using RAG and PyTorch</p>
+                    <div class="tags">
+                        <span class="tag">PyTorch</span><span class="tag">LLMs</span><span class="tag">Computer Vision</span>
+                    </div>
+                    <a href="https://github.com/datadriven-vee/ai_asl" class="btn">View Source</a>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="asl-thumb.jpg" alt="AI ASL" class="card-img">
-            <div class="card-content">
-                <h3>AI ASL Recognition</h3>
-                <p>Deep learning for sign language interpretation.</p>
-                <a href="https://github.com/datadriven-vee/ai_asl" class="btn">View Project</a>
+    </section>
+
+    <section id="education">
+        <h2><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+        <div class="edu-flex">
+            <div class="edu-item">
+                <h3>MS in IT & Analytics</h3>
+                <span class="company">Rochester Institute of Technology (RIT)</span>
+                <p>GPA: 3.9/4.0 | Graduated Dec 2025</p>
+            </div>
+            <div class="edu-item">
+                <h3>Bachelor of Engineering in Electronics & Telecommunication</h3>
+                <span class="company">Vidyalankar Institute of Technology (VIT)</span>
+                <p>GPA: 3.2/4.0 | Graduated July 2021</p>
+            </div>
+            <div class="edu-item">
+                <h3>Professional Certifications</h3>
+                <div style="margin-bottom: 20px;">
+                    <strong>IIT Kanpur Advanced Certification in Data Analytics</strong>
+                    <img src="IITK.jpg" alt="IIT Kanpur Advanced Certification in Data Analytics" style="width:100%; margin-top:10px; border-radius:5px; border: 1px solid #30363d;">
+                </div>
+                <div>
+                    <strong>Masterclass Python - Udemy</strong>
+                    <img src="udemy_python.jpg" alt="Masterclass Python - Udemy" style="width:100%; margin-top:10px; border-radius:5px; border: 1px solid #30363d;">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-<section id="education">
-    <h2>Education</h2>
-    <ul>
-        <li><strong>MS in IT & Analytics</strong> | Rochester Institute of Technology (2025)</li>
-        <li><strong>BE in Electronics & Telecommunication</strong> | University of Mumbai</li>
-    </ul>
-</section>
-
-<section id="certifications">
-    <h2>Certifications & Skills</h2>
-    <p>Python, SQL, PyTorch, LangChain, Generative AI, Snowflake SnowConvert.</p>
-</section>
+    </section>
+</div>
 
 </body>
 </html>
